@@ -40,8 +40,8 @@ export const AddLeadForm = () => {
                     }
                 })
                 if(response.status === 201){
+                    await fetchLeads()
                     reset()
-                    navigate('/leads')
                     toast.success("Lead Added Successfully")
                 }
             }
