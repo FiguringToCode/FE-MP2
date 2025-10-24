@@ -9,7 +9,7 @@ import { toast } from "react-toastify";
 
 export const LeadDetails = () => {
     const {leadId} = useParams()
-    const {leads, loading, sidebarOpen, setSidebarOpen, comments} = useContext(CRMContext)
+    const {leads, loading, sidebarOpen, setSidebarOpen, comments, fetchComments} = useContext(CRMContext)
     const {register, handleSubmit, reset, formState: {errors, isSubmitting} } = useForm()
     const navigate = useNavigate()
 
@@ -32,8 +32,8 @@ export const LeadDetails = () => {
                 }
             })
             if(response.status === 201){
+                await fetchComments()
                 reset()
-                navigate('/leads')
                 toast.success("Comment Added Successfully")
             }
 

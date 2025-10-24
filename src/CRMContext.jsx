@@ -49,10 +49,12 @@ export const DataProvider = ({children}) => {
         value={{
             leads, 
             loading,
+            fetchLeads,
             sidebarOpen,
             setSidebarOpen,
             comments,
             loading1,
+            fetchComments,
             salesAgents,
             loading2,
             closedLeads,

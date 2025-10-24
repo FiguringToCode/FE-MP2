@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 import { useLocation, useNavigate } from "react-router";
 
 export const AddLeadForm = () => {
-    const {leads, loading, sidebarOpen, setSidebarOpen} = useContext(CRMContext)
+    const {leads, loading, sidebarOpen, setSidebarOpen, fetchLeads} = useContext(CRMContext)
     // console.log(leads)
     const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm()
     const location = useLocation()
@@ -29,7 +29,8 @@ export const AddLeadForm = () => {
                     }
                 })
                 if(response.status === 200){
-                    navigate(`/leads`)
+                    await fetchLeads()
+                    reset()
                     toast.success("Lead Updated Successfully")
                 }
             } else {
