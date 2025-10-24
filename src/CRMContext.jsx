@@ -1,6 +1,7 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import useFetch from './useFetch'
 import useLocalStorage from './useLocalStorage'
+import axios from "axios";
 
 
 const CRMContext = createContext()
@@ -8,10 +9,31 @@ export default CRMContext
 
 
 export const DataProvider = ({children}) => {
-    const { data: leads, loading, error } = useFetch("https://be-mp-2.vercel.app/leads")
-    // console.log(leads)
+    
+    const [leads, setLeads] = useState()
+    const [loading, setLoading] = useState(true)
+    const fetchLeads = async () => {
+        setLoading(true)
+        const response = await axios.get("https://be-mp-2.vercel.app/leads")
+        setLeads(response.data)
+        setLoading(false)
+    }
+    useEffect(() => {
+        fetchLeads()
+    }, [])
 
-    const { data: comments, loading: loading1, error: error1 } = useFetch("https://be-mp-2.vercel.app/leads/comments")
+
+    const [comments, setComments] = useState()
+    const [loading1, setLoading1] = useState(true)
+    const fetchComments = async () => {
+        setLoading1(true)
+        const response = await axios.get("https://be-mp-2.vercel.app/leads/comments")
+        setComments(response.data)
+        setLoading1(false)
+    }
+    useEffect(() => {
+        fetchComments()
+    }, [])
 
     const { data: salesAgents, loading: loading2, error: error2 } = useFetch("https://be-mp-2.vercel.app/salesAgent")
 

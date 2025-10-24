@@ -30,7 +30,6 @@ export const AddLeadForm = () => {
                 })
                 if(response.status === 200){
                     navigate(`/leads`)
-                    window.location.reload()
                     toast.success("Lead Updated Successfully")
                 }
             } else {
@@ -40,8 +39,9 @@ export const AddLeadForm = () => {
                     }
                 })
                 if(response.status === 201){
-                    toast.success("Lead Added Successfully")
                     reset()
+                    navigate('/leads')
+                    toast.success("Lead Added Successfully")
                 }
             }
 

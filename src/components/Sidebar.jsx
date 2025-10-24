@@ -20,7 +20,7 @@ export const SideBar = () => {
 
     return (
 
-            <div className={`sidebar-container shadow-lg sidebar-style ${sidebarOpen ? "open" : ""} position-sticky`}>
+            <div className={`sidebar-container shadow-lg sidebar-style ${sidebarOpen ? "open" : ""}`}>
                 <nav className="navbar flex-column p-4 position-sticky">
                     <div className="mb-4 text-center">
                         <Link to={"/"} className='text-decoration-none text-white'>

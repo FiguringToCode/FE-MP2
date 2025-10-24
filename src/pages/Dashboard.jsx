@@ -90,7 +90,7 @@ export const Dashboard = () => {
                 <hr />
 
                 {/* Lead Status Summary */}
-                <section className="mb-5 w-50 ">
+                <section className="mb-5 w-lg-50 ">
                     <div>
                         <h3 className="fw-semibold">Lead Status</h3>
                         <div className="card bg-light shadow-sm p-4 mt-3 d-flex flex-wrap gap-4">

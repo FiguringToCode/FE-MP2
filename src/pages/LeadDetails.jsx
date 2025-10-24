@@ -34,7 +34,6 @@ export const LeadDetails = () => {
             if(response.status === 201){
                 reset()
                 navigate('/leads')
-                window.location.reload()
                 toast.success("Comment Added Successfully")
             }
 
@@ -58,17 +57,25 @@ export const LeadDetails = () => {
 
                 <section className="px-md-5 pt-5">
                     <h3 className="fw-semibold">Lead Details</h3>
-                        <ul className="list-group w-lg-50 w-100">
-                            <li className="list-group-item list-group-item-primary ps-6"><span className="fw-semibold">Lead Name :</span> {leadDetails?.name}</li>
-                            <li className="list-group-item list-group-item-primary ps-6"><span className="fw-semibold">Sales Agent :</span> {leadDetails?.salesAgent.name}</li>
-                            <li className="list-group-item list-group-item-primary ps-6"><span className="fw-semibold">Lead Source :</span> {leadDetails?.source}</li>
-                            <li className="list-group-item list-group-item-primary ps-6"><span className="fw-semibold">Lead Status :</span> {leadDetails?.status}</li>
-                            <li className="list-group-item list-group-item-primary ps-6"><span className="fw-semibold">Priority :</span> {leadDetails?.priority}</li>
-                            <li className="list-group-item list-group-item-primary ps-6"><span className="fw-semibold">Time to Close :</span> {leadDetails?.timeToClose} Days</li>
-                        </ul>
-                                        <button className="btn btn-outline-danger px-5 mt-3 py-2 fw-semibold addLeadBtn-style" style={{ borderRadius: "30px", boxShadow: "0 2px 8px rgba(30,40,70,.1)" }} onClick={handleEditLead}>
-                                            Edit Lead Details
-                                        </button>
+                            {loading ? 
+                            (<div className="text-center my-5">
+                                <div className="spinner-border text-primary" role="status" aria-hidden="true"></div>
+                                <p className="mt-2 fw-semibold text-secondary">Loading leads…</p>
+                            </div>) :
+                                <>
+                                    <ul className="list-group w-lg-50 w-100">
+                                        <li className="list-group-item list-group-item-primary ps-6"><span className="fw-semibold">Lead Name :</span> {leadDetails?.name}</li>
+                                        <li className="list-group-item list-group-item-primary ps-6"><span className="fw-semibold">Sales Agent :</span> {leadDetails?.salesAgent?.name}</li>
+                                        <li className="list-group-item list-group-item-primary ps-6"><span className="fw-semibold">Lead Source :</span> {leadDetails?.source}</li>
+                                        <li className="list-group-item list-group-item-primary ps-6"><span className="fw-semibold">Lead Status :</span> {leadDetails?.status}</li>
+                                        <li className="list-group-item list-group-item-primary ps-6"><span className="fw-semibold">Priority :</span> {leadDetails?.priority}</li>
+                                        <li className="list-group-item list-group-item-primary ps-6"><span className="fw-semibold">Time to Close :</span> {leadDetails?.timeToClose} Days</li>
+                                    </ul>
+                                </>
+                            }
+                        <button className="btn btn-outline-danger px-5 mt-3 py-2 fw-semibold addLeadBtn-style" style={{ borderRadius: "30px", boxShadow: "0 2px 8px rgba(30,40,70,.1)" }} onClick={handleEditLead}>
+                            Edit Lead Details
+                        </button>
                 </section>
                 
                 <section className="px-md-5 pt-5">
@@ -76,7 +83,7 @@ export const LeadDetails = () => {
                     {commentDetails.length > 0 ? (commentDetails.map(comment => {
                         const formattedDate = new Date(comment.createdAt).toLocaleString()
                         return (
-                        <ul className="list-group w-lg-50 w-100 mt-3">
+                        <ul key={comment._id} className="list-group w-lg-50 w-100 mt-3">
                             <li className="list-group-item list-group-item-primary">
                             <b>Comment By:</b> {comment?.author?.name} at ({formattedDate})
                             </li>
