@@ -3,6 +3,7 @@ import { IoHome } from "react-icons/io5";
 import { LuChartSpline, LuFileChartColumnIncreasing } from "react-icons/lu";
 import { MdAddIcCall } from "react-icons/md";
 import { FaUserTie } from "react-icons/fa";
+import { IoSettingsSharp } from "react-icons/io5";
 import { useContext } from 'react';
 import CRMContext from '../CRMContext';
 
@@ -16,6 +17,7 @@ export const SideBar = () => {
         { to: "/sales", icon: <LuFileChartColumnIncreasing style={{marginRight: "1rem"}} />, label: "Sales" },
         { to: "/salesAgent", icon: <FaUserTie style={{marginRight: "1rem"}} />, label: "Agents" },
         { to: "/report", icon: <LuChartSpline style={{marginRight: "1rem"}} />, label: "Reports" },
+        { to: "/settings", icon: <IoSettingsSharp style={{marginRight: "1rem"}} />, label: "Settings" },
     ];
 
     return (

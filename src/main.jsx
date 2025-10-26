@@ -15,6 +15,7 @@ import { AddLeadForm } from './pages/AddLeadForm.jsx'
 import { ToastContainer } from 'react-toastify'
 import { LeadDetails } from './pages/LeadDetails.jsx'
 import { Status } from './pages/Status.jsx'
+import { Settings } from './pages/Settings.jsx'
 
 
 const router = createBrowserRouter([
@@ -49,7 +50,11 @@ const router = createBrowserRouter([
   {
     path: '/status/:status',
     element: <Status />
-  }
+  },
+  {
+    path: '/settings',
+    element: <Settings />
+  },
 ])
 
 

@@ -2,7 +2,7 @@ import {useContext, useState } from "react";
 import CRMContext from "../CRMContext";
 import {useNavigate, Link} from 'react-router-dom'
 import { SideBar } from "../components/Sidebar";
-import { GiHamburgerMenu } from "react-icons/gi";
+import { GiHamburgerMenu } from "react-icons/gi";   
 
 export const Dashboard = () => {
     const { leads, loading, sidebarOpen, setSidebarOpen } = useContext(CRMContext);
