@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { SideBar } from "../components/Sidebar";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { toast } from "react-toastify";
 import CRMContext from "../CRMContext";
 
 
@@ -45,8 +46,9 @@ export const Settings = () => {
                                         onClick={async () => {
                                             await deleteLeadFunction(lead._id);
                                             fetchLeads(); // refresh list after deletion
+                                            toast.success("Lead Deleted Successfully")
                                         }} disabled={deleteLoad1}>
-                                        {deleteLoad1 ? 'Deleting...' : 'Delete Lead'}
+                                        Delete Lead
                                         </button>
                                     </div>
                                 </div>
@@ -72,8 +74,9 @@ export const Settings = () => {
                                     onClick={async () => {
                                         await deleteAgentFunction(agent._id);
                                         fetchAgents();
+                                        toast.success("Agent Deleted Successfully")
                                     }} disabled={deleteLoad2}>
-                                        {deleteLoad2 ? 'Deleting...' : 'Delete Agent'}
+                                        Delete Agent
                                     </button>
                                 </div>
                             </div>
