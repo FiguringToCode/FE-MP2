@@ -15,6 +15,8 @@ export const Leads = () => {
     const priorityMatch = leadPriority === "All" || lead.priority === leadPriority;
     return agentMatch && priorityMatch;
   });
+
+  console.log(filteredLeads)
   
     
     return (
@@ -55,10 +57,10 @@ export const Leads = () => {
                         <tr key={lead._id} onClick={() => navigate(`/leads/leadDetails/${lead._id}`)} style={{ cursor: 'pointer' }} tabIndex={0} // improves keyboard accessibility
                         aria-label={`View details for ${lead.name}`}
                         >
-                          <td>{lead.name}</td>
-                          <td>{lead.status}</td>
-                          <td>{lead.salesAgent.name}</td>
-                          <td>{lead.priority}</td>
+                          <td>{lead?.name}</td>
+                          <td>{lead?.status}</td>
+                          <td>{lead?.salesAgent?.name}</td>
+                          <td>{lead?.priority}</td>
                         </tr>
                       ))
                     ) : (

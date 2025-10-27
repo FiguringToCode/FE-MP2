@@ -35,16 +35,16 @@ export const Settings = () => {
                                         Lead {index+1}
                                     </div>
                                     <div className="card-body">
-                                        <h5 className="card-title">{lead.name}</h5>
-                                        <p className="card-text mb-0 mt-3"><b>Source: </b>{lead.source}</p>
-                                        <p className="card-text mb-0"><b>Status: </b>{lead.status}</p>
-                                        <p className="card-text mb-0"><b>Agent Assigned: </b>{lead.salesAgent.name}</p>
-                                        <p className="card-text mb-0"><b>Priority: </b>{lead.priority}</p>
-                                        <p className="card-text mb-0"><b>Tag: </b>{lead.tags.join(', ')}</p>
-                                        <p className="card-text mb-3"><b>Closure Time: </b>{lead.timeToClose > 1 ? lead.timeToClose + ' Days' : lead.timeToClose + ' Day'}</p>
+                                        <h5 className="card-title">{lead?.name}</h5>
+                                        <p className="card-text mb-0 mt-3"><b>Source: </b>{lead?.source}</p>
+                                        <p className="card-text mb-0"><b>Status: </b>{lead?.status}</p>
+                                        <p className="card-text mb-0"><b>Agent Assigned: </b>{lead?.salesAgent?.name}</p>
+                                        <p className="card-text mb-0"><b>Priority: </b>{lead?.priority}</p>
+                                        <p className="card-text mb-0"><b>Tag: </b>{lead?.tags.join(', ')}</p>
+                                        <p className="card-text mb-3"><b>Closure Time: </b>{lead?.timeToClose > 1 ? lead?.timeToClose + ' Days' : lead?.timeToClose + ' Day'}</p>
                                         <button className="btn btn-outline-danger"
                                         onClick={async () => {
-                                            await deleteLeadFunction(lead._id);
+                                            await deleteLeadFunction(lead?._id);
                                             fetchLeads(); // refresh list after deletion
                                             toast.success("Lead Deleted Successfully")
                                         }} disabled={deleteLoad1}>
@@ -61,18 +61,18 @@ export const Settings = () => {
                     <h3 className="fw-semibold fs-2 text-center">All Sales Agents</h3>
                     <hr />
                     <div className="row">
-                        {salesAgents.length > 0 ? salesAgents?.map((agent, index) => (
+                        {salesAgents?.length > 0 ? salesAgents?.map((agent, index) => (
                             <div className="card col-sm-12 col-md-6 col-lg-4 my-1">
                                 <div className="card-header">
                                     Agent {index+1}
                                 </div>
                                 <div className="card-body">
-                                    <h5 className="card-title">{agent.name}</h5>
-                                    <p className="card-text mb-0 mt-3"><b>Agent Id: </b>{agent._id}</p>
-                                    <p className="card-text mb-3"><b>Agent Email: </b>{agent.email}</p>
+                                    <h5 className="card-title">{agent?.name}</h5>
+                                    <p className="card-text mb-0 mt-3"><b>Agent Id: </b>{agent?._id}</p>
+                                    <p className="card-text mb-3"><b>Agent Email: </b>{agent?.email}</p>
                                     <button className="btn btn-outline-danger"
                                     onClick={async () => {
-                                        await deleteAgentFunction(agent._id);
+                                        await deleteAgentFunction(agent?._id);
                                         fetchAgents();
                                         toast.success("Agent Deleted Successfully")
                                     }} disabled={deleteLoad2}>
