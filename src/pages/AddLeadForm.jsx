@@ -8,11 +8,10 @@ import { toast } from "react-toastify";
 import { useLocation, useNavigate } from "react-router";
 
 export const AddLeadForm = () => {
-    const {leads, loading, sidebarOpen, setSidebarOpen, fetchLeads} = useContext(CRMContext)
+    const {leads, loading, sidebarOpen, setSidebarOpen, fetchLeads, salesAgents} = useContext(CRMContext)
     // console.log(leads)
     const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm()
     const location = useLocation()
-    const navigate = useNavigate()
     const leadToEdit = location.state?.leadToEdit
 
     useEffect(() => {
@@ -94,11 +93,7 @@ export const AddLeadForm = () => {
                             <label htmlFor="salesAgents">Sales Agent :</label><br />
                             <select className="w-100 border border-subtle-dark p-1 rounded-2" {...register('salesAgent', {required: true})} name="salesAgent" id="salesAgent">
                                 <option value="">Select Sales Agent</option>
-                                <option value="68e3b61d99b44377621fbae7">John Doe</option>
-                                <option value="68e3b64799b44377621fbae9">Jane Smith</option>
-                                <option value="68e3b67b99b44377621fbaeb">Robert Litt</option>
-                                <option value="68e3bb37921c0ea63bf06042">Matthew Sanders</option>
-                                <option value="68e4aef2074bb7513f8d69e3">Rebecca Gutenberg</option>
+                                {salesAgents?.map(agent => (<option value={agent._id}>{agent.name}</option>))}
                             </select>
                             {errors.salesAgent && <p className="text-danger">Select Sales Agent</p>}
                         </div>

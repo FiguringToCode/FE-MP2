@@ -13,9 +13,9 @@ export const LeadDetails = () => {
     const {register, handleSubmit, reset, formState: {errors, isSubmitting} } = useForm()
     const navigate = useNavigate()
 
-    const leadDetails = leads.find(detail => detail._id === leadId)
+    const leadDetails = leads.find(detail => detail?._id === leadId)
     // console.log(leadDetails)
-    const commentDetails = comments.filter(detail => detail.lead._id === leadId)
+    const commentDetails = comments.filter(detail => detail?.lead?._id === leadId)
 
     const [addComment, setAddComment] = useState(false)
 
@@ -52,7 +52,7 @@ export const LeadDetails = () => {
                 </button>
 
                 <div id="Header" className="fs-1 fw-bold mb-4 py-3" style={{background: "linear-gradient(90deg,#1e88e5 60%,#60a9f7 100%)", color: "white", borderRadius: "18px"}}>
-                  Lead Management <span className="text-primary-emphasis">[ {leadDetails.name} ]</span>
+                  Lead Management <span className="text-primary-emphasis">[ {leadDetails?.name} ]</span>
                 </div>
 
                 <section className="px-md-5 pt-5">
@@ -80,10 +80,10 @@ export const LeadDetails = () => {
                 
                 <section className="px-md-5 pt-5">
                     <h3 className="fw-semibold">Comment Section</h3>
-                    {commentDetails.length > 0 ? (commentDetails.map(comment => {
+                    {commentDetails?.length > 0 ? (commentDetails?.map(comment => {
                         const formattedDate = new Date(comment.createdAt).toLocaleString()
                         return (
-                        <ul key={comment._id} className="list-group w-lg-50 w-100 mt-3">
+                        <ul key={comment?._id} className="list-group w-lg-50 w-100 mt-3">
                             <li className="list-group-item list-group-item-primary">
                             <b>Comment By:</b> {comment?.author?.name} at ({formattedDate})
                             </li>
