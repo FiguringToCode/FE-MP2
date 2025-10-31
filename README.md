@@ -38,13 +38,13 @@ Watch a walkthrough (5 minutes) of all the major features of this app:
 ---
 
 ## Features
-Dashboard page - all leads, sidebar, lead status and  status filter, a button to add a new lead✅
-Leads page - all leads, sidebar, lead overview with lead status and sort by status filter, a button to add a new lead✅
-Lead form is there to add a new lead✅
-Agent page - lists all salesagent , a sidebar, a button to add a new salesagent✅
-Reports  page - displays all reports in form of charts✅
-Lead detail page - displays all details of a lead, a button to edit a lead, comment section and a sidebar✅
-Settings page - has a sidebar and deletion functionality for a lead and agent✅
+- Dashboard page :- all leads, sidebar, lead status and  status filter, a button to add a new lead✅
+- Leads page :- all leads, sidebar, lead overview with lead status and sort by status filter, a button to add a new lead✅
+- Lead form is there to add a new lead✅
+- Agent page :- lists all salesagent , a sidebar, a button to add a new salesagent✅
+- Reports  page :- displays all reports in form of charts✅
+- Lead detail page :- displays all details of a lead, a button to edit a lead, comment section and a sidebar✅
+- Settings page :- has a sidebar and deletion functionality for a lead and agent✅
 
 ---
 
