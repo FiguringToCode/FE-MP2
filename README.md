@@ -1,16 +1,53 @@
-# React + Vite
+# Anvaya CRM App 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack CRM app where you can manage, add, edit information about leads and sales agents.
+Built with React frontend, Express/Node backend and MongoDB Database 
 
-Currently, two official plugins are available:
+---
+## Demo Link
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[Live Demo](https://fe-mp-2.vercel.app/)
 
-## React Compiler
+---
+## Quick Start
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+```
+git clone https://github.com/FiguringToCode/FE-MP2.git
+cd <FE-MP2>
+npm install
+npm run dev
+```
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Technologies
+- React JS
+- React Router
+- React Toastify
+- Bootstrap
+- Node JS
+- Express
+- MongoDB
+
+---
+
+## Demo Video
+Watch a walkthrough (5 minutes) of all the major features of this app:
+[Loom Video](https://www.loom.com/share/88a62a7898044a52bf592469595f8cf1)
+
+---
+
+## Features
+Dashboard page - all leads, sidebar, lead status and  status filter, a button to add a new lead✅
+Leads page - all leads, sidebar, lead overview with lead status and sort by status filter, a button to add a new lead✅
+Lead form is there to add a new lead✅
+Agent page - lists all salesagent , a sidebar, a button to add a new salesagent✅
+Reports  page - displays all reports in form of charts✅
+Lead detail page - displays all details of a lead, a button to edit a lead, comment section and a sidebar✅
+Settings page - has a sidebar and deletion functionality for a lead and agent✅
+
+---
+
+## Contact 
+
+For bugs or feature request. please reach out to marineryash2000@gmail.com
