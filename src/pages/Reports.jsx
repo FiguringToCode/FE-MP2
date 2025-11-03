@@ -21,6 +21,12 @@ export const Reports = () => {
         {label: "Proposal Sent", value: pipelineLeads?.filter(lead => lead.status === "Proposal Sent").length},
         {label: "Closed", value: closedLeads?.length},
     ]
+
+    const closedLeadsByAgent = closedLeads?.reduce((acc, lead) => {
+        const agentName = lead.salesAgent?.name || "Unknown"
+        acc[agentName] = (acc[agentName] || 0) + 1
+        return acc
+    }, {})
     
 
     return (
@@ -49,7 +55,7 @@ export const Reports = () => {
                                 Total Leads ( Closed vs Pipeline )
                             </div>
                             <div className="card-body">
-                                <Pie data={{
+                                <Pie style={{alignSelf: "center"}} data={{
                                     labels: totalLeads?.map(data => data.label),
                                     datasets: [
                                         {
@@ -65,13 +71,13 @@ export const Reports = () => {
                                 Closed Leads By Sales Agent
                             </div>
                             <div className="card-body">
-                                <Bar data={{
-                                    labels: closedLeads?.map(data => data.salesAgent.name),
+                                <Bar style={{alignSelf: "center"}} data={{
+                                    labels: Object.keys(closedLeadsByAgent || {}),
                                     datasets: [
                                         {
-                                            label: closedLeads?.map(data => data.name),
-                                            data: closedLeads?.map(data => data.status === 'Closed'),
-                                            backgroundColor: ["rgba(106, 90, 205, 0.8)", "rgba(72, 209, 204, 0.8)"]
+                                            label: "Closed Leads Count",
+                                            data: Object.values(closedLeadsByAgent || {}),
+                                            backgroundColor: "rgba(106, 90, 205, 0.8)"
                                         }
                                     ]
                                 }} />
@@ -81,15 +87,20 @@ export const Reports = () => {
                             <div className="card-header fs-4 fw-semibold">
                                 Lead Status Distribution
                             </div>
-                            <div className="card-body">
+                            <div style={{alignSelf: "center"}} className="card-body">
                                 <Doughnut data={{
                                     labels: leadStatusData?.map(data => data.label),
                                     datasets: [
                                         {
                                             data: leadStatusData?.map(data => data.value),
-                                            backgroundColor: ["rgba(106, 90, 205, 0.8)", "rgba(72, 209, 204, 0.8)", "rgba(172, 25, 204, 0.8)", "rgba(209, 186, 72, 0.74)", "rgba(209, 72, 72, 0.8)"]
-                                        }
-                                    ]
+                                            backgroundColor: [
+                                                "rgba(106, 90, 205, 0.8)",
+                                                "rgba(72, 209, 204, 0.8)",
+                                                "rgba(172, 25, 204, 0.8)",
+                                                "rgba(209, 186, 72, 0.74)",
+                                                "rgba(209, 72, 72, 0.8)"
+                                            ]
+                                        }]
                                 }} />
                             </div>
                         </div>
