@@ -71,13 +71,13 @@ export const DataProvider = ({children}) => {
     }
 
 
-    const [deleteAgent, setDeleeAgent] = useState(null)
+    const [deleteAgent, setDeleteAgent] = useState(null)
     const [deleteLoad2, setDeleteLoad2] = useState(false)
     const deleteAgentFunction = async (agentId) => {
         try {
             setDeleteLoad2(true)
             const response = await axios.delete(`https://be-mp-2.vercel.app/salesAgent/delete/${agentId}`)
-            setDeleteLoad2(false)
+            setDeleteAgent(response.data)
 
         } catch (error) {
             console.error("Error deleting agent: ", error)
