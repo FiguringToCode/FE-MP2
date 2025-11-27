@@ -13,7 +13,7 @@ export const LeadDetails = () => {
     const {register, handleSubmit, reset, formState: {errors, isSubmitting} } = useForm()
     const navigate = useNavigate()
 
-    const leadDetails = leads.find(detail => detail?._id === leadId)
+    const leadDetails = leads?.find(detail => detail?._id === leadId)
     // console.log(leadDetails)
     const commentDetails = comments.filter(detail => detail?.lead?._id === leadId)
 
