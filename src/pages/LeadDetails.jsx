@@ -15,7 +15,7 @@ export const LeadDetails = () => {
 
     const leadDetails = leads?.find(detail => detail?._id === leadId)
     // console.log(leadDetails)
-    const commentDetails = comments.filter(detail => detail?.lead?._id === leadId)
+    const commentDetails = comments?.filter(detail => detail?.lead?._id === leadId)
 
     const [addComment, setAddComment] = useState(false)
 
